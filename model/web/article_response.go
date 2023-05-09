@@ -9,4 +9,5 @@ type ArticleResponse struct {
 	UserId     int
 	Status     int
 	Views      int
+	CreatedAt  string
 }
