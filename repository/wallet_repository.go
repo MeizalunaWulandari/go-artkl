@@ -8,9 +8,9 @@ import (
 )
 
 type WalletRepository interface {
-	Save(ctx context.Context, tx sql.Tx, wallet domain.Wallet) domain.Wallet
-	Update(ctx context.Context, tx sql.Tx, wallet domain.Wallet) domain.Wallet
-	Delete(ctx context.Context, tx sql.Tx, wallet domain.Wallet)
-	FindByUsername(ctx context.Context, tx sql.Tx, walletId int) domain.Wallet
-	FindAll(ctx context.Context, tx sql.Tx, wallet domain.Wallet) []domain.Wallet
+	Save(ctx context.Context, tx *sql.Tx, wallet domain.Wallet) domain.Wallet
+	Update(ctx context.Context, tx *sql.Tx, wallet domain.Wallet) domain.Wallet
+	Delete(ctx context.Context, tx *sql.Tx, wallet domain.Wallet)
+	FindByUsername(ctx context.Context, tx *sql.Tx, walletId int) domain.Wallet
+	FindAll(ctx context.Context, tx *sql.Tx, wallet domain.Wallet) []domain.Wallet
 }

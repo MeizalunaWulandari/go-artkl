@@ -8,4 +8,5 @@ type Article struct {
 	CategoryId int
 	UserId     int
 	Status     int
+	Views      int
 }
