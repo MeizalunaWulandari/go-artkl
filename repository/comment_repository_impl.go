@@ -47,7 +47,7 @@ func (repository *CommentRepositoryImpl) FindById(ctx context.Context, tx *sql.T
 	}
 }
 
-func (repository *CommentRepositoryImpl) FindAll(ctx context.Context, tx *sql.Tx, comment domain.Comment) []domain.Comment {
+func (repository *CommentRepositoryImpl) FindAll(ctx context.Context, tx *sql.Tx) []domain.Comment {
 
 	SQL := "SELECT, id, content, user_id, article_id, created_at FROM comments"
 	rows, err := tx.QueryContext(ctx, SQL)
