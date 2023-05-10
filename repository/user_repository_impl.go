@@ -47,7 +47,7 @@ func (repository *UserRepositoryImpl) FindById(ctx context.Context, tx *sql.Tx, 
 	}
 }
 
-func (repository *UserRepositoryImpl) FindAll(ctx context.Context, tx *sql.Tx, user domain.User) []domain.User {
+func (repository *UserRepositoryImpl) FindAll(ctx context.Context, tx *sql.Tx) []domain.User {
 	SQL := "SELECT, id, name, email, username, role, level, created_at FROM users"
 	rows, err := tx.QueryContext(ctx, SQL)
 	helper.PanicIfError(err)
