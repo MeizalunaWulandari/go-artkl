@@ -12,5 +12,5 @@ type WalletRepository interface {
 	Update(ctx context.Context, tx *sql.Tx, wallet domain.Wallet) domain.Wallet
 	Delete(ctx context.Context, tx *sql.Tx, wallet domain.Wallet)
 	FindById(ctx context.Context, tx *sql.Tx, walletId int) (domain.Wallet, error)
-	FindAll(ctx context.Context, tx *sql.Tx, wallet domain.Wallet) []domain.Wallet
+	FindAll(ctx context.Context, tx *sql.Tx) []domain.Wallet
 }

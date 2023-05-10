@@ -47,7 +47,7 @@ func (repository *WalletRepositoryImpl) FindById(ctx context.Context, tx *sql.Tx
 	}
 }
 
-func (repository *WalletRepositoryImpl) FindAll(ctx context.Context, tx *sql.Tx, wallet domain.Wallet) []domain.Wallet {
+func (repository *WalletRepositoryImpl) FindAll(ctx context.Context, tx *sql.Tx) []domain.Wallet {
 	SQL := "SELECT, id, balance, user_id, status name FROM wallets"
 	rows, err := tx.QueryContext(ctx, SQL)
 	helper.PanicIfError(err)
