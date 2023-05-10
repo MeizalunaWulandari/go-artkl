@@ -30,6 +30,7 @@ func ToArticleResponse(article domain.Article) web.ArticleResponse {
 		UserId:     article.UserId,
 		Status:     article.Status,
 		Views:      article.Views,
+		CreatedAt:  article.CreatedAt,
 	}
 }
 
@@ -39,4 +40,22 @@ func ToArticleResponses(articles []domain.Article) []web.ArticleResponse {
 		articleResponses = append(articleResponses, ToArticleResponse(article))
 	}
 	return articleResponses
+}
+
+func ToCommentResponse(comment domain.Comment) web.CommentResponse {
+	return web.CommentResponse{
+		Id:        comment.Id,
+		Content:   comment.Content,
+		UserId:    comment.UserId,
+		ArticleId: comment.ArticleId,
+	}
+}
+
+func ToCommentResponses(comments []domain.Comment) []web.CommentResponse {
+	var commentResponses []web.CommentResponse
+	for _, article := range comments {
+		commentResponses = append(commentResponses, web.CommentResponse(article))
+	}
+
+	return commentResponses
 }
