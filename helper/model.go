@@ -19,3 +19,24 @@ func ToCategoryResponses(categories []domain.Category) []web.CategoryResponse {
 	}
 	return categoryResponses
 }
+
+func ToArticleResponse(article domain.Article) web.ArticleResponse {
+	return web.ArticleResponse{
+		Id:         article.Id,
+		Slug:       article.Slug,
+		Title:      article.Title,
+		Content:    article.Content,
+		CategoryId: article.CategoryId,
+		UserId:     article.UserId,
+		Status:     article.Status,
+		Views:      article.Views,
+	}
+}
+
+func ToArticleResponses(articles []domain.Article) []web.ArticleResponse {
+	var articleResponses []web.ArticleResponse
+	for _, article := range articles {
+		articleResponses = append(articleResponses, ToArticleResponse(article))
+	}
+	return articleResponses
+}
