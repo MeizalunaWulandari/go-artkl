@@ -79,3 +79,21 @@ func ToUserResponses(users []domain.User) []web.UserResponse {
 
 	return userResponses
 }
+
+func ToWalletResponse(wallet domain.Wallet) web.WalletResponse {
+	return web.WalletResponse{
+		Id:      wallet.Id,
+		Balance: wallet.Balance,
+		UserId:  wallet.UserId,
+		Status:  wallet.Status,
+	}
+}
+
+func ToWalletResponses(wallets []domain.Wallet) []web.WalletResponse {
+	var walletResponses []web.WalletResponse
+	for _, wallet := range wallets {
+		walletResponses = append(walletResponses, web.WalletResponse(wallet))
+	}
+
+	return walletResponses
+}
