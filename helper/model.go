@@ -53,9 +53,29 @@ func ToCommentResponse(comment domain.Comment) web.CommentResponse {
 
 func ToCommentResponses(comments []domain.Comment) []web.CommentResponse {
 	var commentResponses []web.CommentResponse
-	for _, article := range comments {
-		commentResponses = append(commentResponses, web.CommentResponse(article))
+	for _, comment := range comments {
+		commentResponses = append(commentResponses, web.CommentResponse(comment))
 	}
 
 	return commentResponses
+}
+
+func ToUserResponse(user domain.User) web.UserResponse {
+	return web.UserResponse{
+		Id:        user.Id,
+		Name:      user.Name,
+		Username:  user.Username,
+		Role:      user.Role,
+		Level:     user.Level,
+		CreatedAt: user.CreateAt,
+	}
+}
+
+func ToUserResponses(users []domain.User) []web.UserResponse {
+	var userResponses []web.UserResponse
+	for _, user := range users {
+		userResponses = append(userResponses, web.UserResponse(user))
+	}
+
+	return userResponses
 }
