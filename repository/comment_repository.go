@@ -7,7 +7,7 @@ import (
 	"github.com/MeizalunaWulandari/go-artkl/model/domain"
 )
 
-type CommentRespository interface {
+type CommentRepository interface {
 	Save(ctx context.Context, tx *sql.Tx, comment domain.Comment) domain.Comment
 	Update(ctx context.Context, tx *sql.Tx, comment domain.Comment) domain.Comment
 	Delete(ctx context.Context, tx *sql.Tx, comment domain.Comment)
